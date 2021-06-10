@@ -7,10 +7,31 @@
     <meta charset="UTF-8">
     <title> Dino Game </title>
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 
 <body>
+
+    <header>
+
+        <button onclick="location.href = 'HTML/help.html'" id="help" style="float: left;">
+            <img src="assets/help.png" alt="help">
+        </button>
+
+        <button id="lboard" onclick="location.href = 'HTML/leaderboard.html'" style="float: right;">
+          <span class="material-icons">
+            leaderboard
+          </span>
+        </button>
+
+        <div class="header">
+          <img src="assets/systango.png" alt="logo" class="logo">
+        </div>
+    </header>
+    
+      <h3> The Trex Runner Game </h3>
+
     <div id="container">
         <div id="dino">
             <img src="assets/dino.png" alt="dino">
@@ -28,6 +49,8 @@
             SCORE <b> 00 </b>
         </div>
         <div id="gameOver"> Game Over </div>
+        <div id="start"> Press Space to Start The Game </div>
+        <div id="welcome"> Welcome to Trex Runner Game </div>
     </div>
 
     <script src="js/file.js"></script>
