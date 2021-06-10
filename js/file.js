@@ -5,17 +5,22 @@ let road = document.querySelector("#road");
 let cloud = document.querySelector("#cloud");
 let score = document.querySelector("#score");
 let gameOver = document.querySelector("#gameOver");
+let start = document.querySelector("#start");
+let welcome = document.querySelector("#welcome");
+
 
 // Variables for score 
 let interval = null;
 let playerScore = 0;
 let count = 0;
+let initialInterval = 200; // this is the interval at which the score increases
 
 // function for score 
 let ScoreCount = () => {
     playerScore++;
     score.innerHTML = `SCORE <b> : ${playerScore} </b>`;
     console.log(playerScore);
+    initialInterval--;
 }
 
 
@@ -24,13 +29,15 @@ let ScoreCount = () => {
 window.addEventListener("keydown" , (evt) => {
     if (evt.code == "Space" ) {
         gameOver.style.display = "none";
+        start.style.display = "none";
+        welcome.style.display = "none";
         block.classList.add("blockActive");
         road.firstElementChild.style.animation = "roadAnimate 1.5s linear infinite";
         cloud.firstElementChild.style.animation = "cloudAnimate 50s linear infinite";
 
         // Score 
         let playerScore = 0;
-        interval = setInterval(ScoreCount,200);
+        interval = setInterval(ScoreCount,initialInterval);
         // if (block.classList != "blockActive") {
         //     interval = setInterval(ScoreCount,200);
         // }
@@ -72,25 +79,26 @@ let result = setInterval(() => {
 
     let blockBottom = parseInt(getComputedStyle(block).getPropertyValue("bottom")); // y-axis or bottom of dino
 
-    if (dinoBottom <= 90 && blockLeft >= 20 && blockLeft <= 145) {
+    // if (dinoBottom <= 90 && blockLeft >= 20 && blockLeft <= 145) {
         
-        gameOver.style.display = "block";
-        block.classList.remove("blockActive");
-        road.firstElementChild.style.animation = "none";
-        cloud.firstElementChild.style.animation = "none";
-        clearInterval(interval);
-        playerScore = 0;
-        count = 1;
-    }
-    
-    // if (dinoLeft < blockLeft + blockWidth && dinoLeft + dinoWidth > blockLeft && dinoBottom < blockBottom + blockHeight && dinoBottom + dinoHeight > blockBottom) {
-
     //     gameOver.style.display = "block";
     //     block.classList.remove("blockActive");
     //     road.firstElementChild.style.animation = "none";
     //     cloud.firstElementChild.style.animation = "none";
     //     clearInterval(interval);
     //     playerScore = 0;
+    //     count = 1;
     // }
+    
+    if (dinoLeft < blockLeft + blockWidth && dinoLeft + dinoWidth > blockLeft && dinoBottom < blockBottom + blockHeight && dinoBottom + dinoHeight > blockBottom) {
+
+        gameOver.style.display = "block";
+        start.style.display = "block";
+        block.classList.remove("blockActive");
+        road.firstElementChild.style.animation = "none";
+        cloud.firstElementChild.style.animation = "none";
+        clearInterval(interval);
+        playerScore = 0;
+    }
 
 },10);
