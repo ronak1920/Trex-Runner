@@ -5,6 +5,46 @@
     box-sizing: border-box;
 }
 
+header {
+    width: 1270px;
+    padding: 10px;
+    text-align: center;
+    background: #525252;
+    color: white;
+    font-size: 30px;
+}
+
+h3 {
+    text-align: center;
+    padding: 10px;
+    background-color: #525252;
+  }
+
+#lboard {
+    width: 50px;
+    padding: 30px 30px;
+    padding-right: 30px;
+    border: 2px solid #fff;
+    text-align: center;
+    background: #525252;
+    color: white;
+    font-size: 30px;
+    border: none;
+  }
+
+#help {
+    align-content: left;
+    width: 50px;
+    padding: 30px 30px;
+    padding-left: 30px;
+    border: 2px solid #fff;
+    text-align: center;
+    background: #525252;
+    color: white;
+    font-size: 30px;
+    border: none;
+  }
+
 body {
     display: grid;
     place-items: center;
@@ -44,7 +84,7 @@ body {
 
     45%,
     55% {
-        bottom: 190px;
+        bottom: 205px;
     }
 }
 
@@ -142,8 +182,30 @@ body {
     font-size: 70px;
     position: absolute;
     left: calc(50% - 181px);
-    top: calc(50% - 40px);
+    top: calc(50% - 20px);
     width: 362px;
+    height: 80px;
+    color: #525252;
+}
+
+#container #start {
+    text-align: center;
+    font-size: 30px;
+    position: absolute;
+    left: calc(50% - 240px);
+    top: calc(50% - 120px);
+    width: 500px;
+    height: 80px;
+    color: #525252;
+}
+
+#container #welcome {
+    text-align: center;
+    font-size: 30px;
+    position: absolute;
+    left: calc(50% - 240px);
+    top: calc(50% - 200px);
+    width: 500px;
     height: 80px;
     color: #525252;
 }
